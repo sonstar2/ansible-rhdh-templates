@@ -11,12 +11,12 @@ spec:
   parameters:
     - title: Project Information
       required:
-        - token
+        - AAP_TOKEN
         - projectName
         - repoUrl
       properties:
-        token:
-          title: Token
+        AAP_TOKEN:
+          title: AAP_TOKEN
           type: string
           description: Oauth2 token
           ui:field: AAPTokenField
