@@ -40,7 +40,7 @@ spec:
       properties:
         organization:
           title: Organization
-          type: string
+          # type: string
           description: AAP Organization name
           default: 1-org
           ui:field: hidden  # To hide this field in the UI
