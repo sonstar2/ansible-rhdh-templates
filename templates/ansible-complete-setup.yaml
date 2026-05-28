@@ -85,7 +85,7 @@ spec:
       name: Create AAP project
       action: rhaap:create-project
       input:
-        token: ${{ parameters.token }}
+        token: ${{ parameters.AAP_TOKEN }}
         deleteIfExist: true
         values:
           projectName: ${{ parameters.projectName }}
