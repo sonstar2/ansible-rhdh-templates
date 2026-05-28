@@ -40,10 +40,12 @@ spec:
       properties:
         organization:
           title: Organization
-          # type: string
-          description: AAP Organization name
-          default: 1-org
-          ui:field: hidden  # To hide this field in the UI
+          description: Select organization
+          resource: organizations
+          ui:field: AAPResourcePicker
+          default:
+            id: 1
+            name: Default
         jobInventory:
           title: Inventory name
           # type: string
