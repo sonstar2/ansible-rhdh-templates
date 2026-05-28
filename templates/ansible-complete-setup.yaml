@@ -9,28 +9,64 @@ spec:
   type: service
 
   parameters:
-    - title: Project Information
+    - title: Project data
+      description: Provide project data
       required:
-        - AAP_TOKEN
-        - projectName
-        - repoUrl
+        - token
+        - organization
+        - scmUrl
       properties:
         AAP_TOKEN:
-          title: AAP_TOKEN
+          title: Token
           type: string
           description: Oauth2 token
           ui:field: AAPTokenField
           ui:backstage:
             review:
               show: false
-        projectName:
-          title: Project Name
+        scmType:
+          title: Select source control option
           type: string
-          description: Name of the Ansible project
-        repoUrl:
-          title: Repository URL
+          description: Select the source control option for your Ansible project.
+          default: Github
+          enum:
+            - Github
+            - Gitlab
+        organization:
+          title: Organization
+          description: Select organization
+          resource: organizations
+          ui:field: AAPResourcePicker
+          default:
+            id: 1
+            name: Default
+        jobInventory:
+          title: Inventory
+          description: Select inventory
+          resource: inventories
+          ui:field: AAPResourcePicker
+          default:
+            id: 1
+            name: Default
+        credentials:
+          title: Credentials
+          description: Select SCM credential for Private repositories
+          resource: credentials
+          ui:field: AAPResourcePicker
+        scmUrl:
+          title: Source control URL
           type: string
-          description: Git repository URL containing Ansible content
+          ui:help: 'Source control URL: gitSourceControlUrlHelp'
+          ui:options:
+            rows: 5
+          default: https://github.com/ansible/ansible-pattern-loader
+        scmBranch:
+          title: Source control branch/tag/commit
+          type: string
+          ui:options:
+            rows: 5
+          default: main
+          ui:help: 'Branch to checkout. In addition to branches, you can input tags, commit hashes, and arbitrary refs. Some commit hashes and refs may not be available unless you also provide a custom refspec.'
 
     - title: AAP Configuration
       required:
