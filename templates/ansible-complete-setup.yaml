@@ -13,6 +13,7 @@ spec:
       description: Provide project data
       required:
         - AAP_TOKEN
+        - projectName
         - scmUrl
       properties:
         AAP_TOKEN:
@@ -23,6 +24,10 @@ spec:
           ui:backstage:
             review:
               show: false
+        projectName:
+          title: Project Name
+          type: string
+          description: Name of the Ansible project
         scmType:
           title: Select source control option
           type: string
