@@ -13,7 +13,6 @@ spec:
       description: Provide project data
       required:
         - AAP_TOKEN
-        - organization
         - scmUrl
       properties:
         AAP_TOKEN:
@@ -32,22 +31,6 @@ spec:
           enum:
             - Github
             - Gitlab
-        organization:
-          title: Organization
-          description: Select organization
-          resource: organizations
-          ui:field: AAPResourcePicker
-          default:
-            id: 1
-            name: Default
-        jobInventory:
-          title: Inventory
-          description: Select inventory
-          resource: inventories
-          ui:field: AAPResourcePicker
-          default:
-            id: 1
-            name: Default
         credentials:
           title: Credentials
           description: Select SCM credential for Private repositories
@@ -83,12 +66,13 @@ spec:
             id: 1
             name: Default
         jobInventory:
-          title: Inventory name
-          # type: string
-          description: AAP Inventory name
+          title: Inventory
+          description: Select inventory
           resource: inventories
           ui:field: AAPResourcePicker
-          default: my-inventory
+          default:
+            id: 1
+            name: Default
         credentials:
           title: Credentials
           description: Select SCM credential for Private repositories
@@ -106,7 +90,7 @@ spec:
         values:
           projectName: ${{ parameters.projectName }}
           organization: ${{ parameters.organization }}
-          scmUrl: ${{ parameters.repoUrl }}
+          scmUrl: ${{ parameters.scmUrl }}
           scmBranch: main
           scmUpdateOnLaunch: true
 
