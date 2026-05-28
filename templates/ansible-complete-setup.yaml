@@ -82,17 +82,19 @@ spec:
   steps:
     # Step 1: Create AAP Project
     - id: create-project
-      name: Create AAP Project
+      name: Create AAP project
       action: rhaap:create-project
       input:
-        token: ${{ parameters.AAP_TOKEN }}
+        token: ${{ parameters.token }}
         deleteIfExist: true
         values:
           projectName: ${{ parameters.projectName }}
+          projectDescription: 'Self Service Job Template Project'
           organization: ${{ parameters.organization }}
           scmUrl: ${{ parameters.scmUrl }}
-          scmBranch: main
+          scmBranch: ${{ parameters.scmBranch }}
           scmUpdateOnLaunch: true
+          credentials: ${{ parameters.credentials }}
 
     # Step 2: Create Execution Environment
     - id: create-ee
