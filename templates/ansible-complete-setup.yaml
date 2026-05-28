@@ -37,7 +37,7 @@ spec:
           ui:field: hidden  # To hide this field in the UI
         jobInventory:
           title: Inventory name
-          type: string
+          # type: string
           description: AAP Inventory name
           resource: inventories
           ui:field: AAPResourcePicker
