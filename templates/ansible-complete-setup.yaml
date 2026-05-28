@@ -12,7 +12,7 @@ spec:
     - title: Project data
       description: Provide project data
       required:
-        - token
+        - AAP_TOKEN
         - organization
         - scmUrl
       properties:
