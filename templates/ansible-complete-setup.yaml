@@ -36,11 +36,6 @@ spec:
           enum:
             - Github
             - Gitlab
-        credentials:
-          title: Credentials
-          description: Select SCM credential for Private repositories
-          resource: credentials
-          ui:field: AAPResourcePicker
         scmUrl:
           title: Source control URL
           type: string
